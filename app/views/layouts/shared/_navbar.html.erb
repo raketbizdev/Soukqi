@@ -1,0 +1,23 @@
+<!-- app/views/shared/_navbar.html.erb -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <!-- Logo on the left -->
+    <%= link_to 'Soukqi', root_path, class: 'navbar-brand logo-text' %>
+
+    <!-- Navbar toggler (for mobile view) -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar links on the right -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+            <!--applicant_signin_path-->
+          <%= link_to 'Signin', "applicant_signin_path", class: 'btn btn-primary' %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,54 @@
+<!-- app/views/shared/_footer.html.erb -->
+<div class="container-fluid bg-dark text-light py-5">
+  <div class="container">
+    <div class="row">
+      
+      <!-- Footer Column 1: For Job Seekers -->
+      <div class="col-md-3 mb-3">
+        <h5 class="text-uppercase">For Job Seekers</h5>
+        <ul class="list-unstyled">
+          <li><a href="/jobs" class="text-light">Browse Jobs</a></li>
+          <li><a href="/career-advice" class="text-light">Career Advice</a></li>
+          <li><a href="/resume-templates" class="text-light">Resume Templates</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 2: For Employers -->
+      <div class="col-md-3 mb-3">
+        <h5 class="text-uppercase">For Employers</h5>
+        <ul class="list-unstyled">
+          <li><a href="/employers/new" class="text-light">Post a Job</a></li>
+          <li><a href="/employers/login" class="text-light">Employer Login</a></li>
+          <li><a href="/hiring-resources" class="text-light">Hiring Resources</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 3: Company Information -->
+      <div class="col-md-3 mb-3">
+        <h5 class="text-uppercase">Company</h5>
+        <ul class="list-unstyled">
+          <li><a href="/about" class="text-light">About Us</a></li>
+          <li><a href="/contact" class="text-light">Contact</a></li>
+          <li><a href="/privacy-policy" class="text-light">Privacy Policy</a></li>
+          <li><a href="/terms-of-service" class="text-light">Terms of Service</a></li>
+        </ul>
+      </div>
+
+      <!-- Footer Column 4: Social Media Links -->
+      <div class="col-md-3 mb-3 text-center">
+        <h5 class="text-uppercase">Follow Us</h5>
+        <a href="#" class="text-light me-3"><i class="bi bi-facebook" style="font-size: 1.5rem;"></i></a>
+        <a href="#" class="text-light me-3"><i class="bi bi-twitter" style="font-size: 1.5rem;"></i></a>
+        <a href="#" class="text-light me-3"><i class="bi bi-linkedin" style="font-size: 1.5rem;"></i></a>
+        <a href="#" class="text-light"><i class="bi bi-instagram" style="font-size: 1.5rem;"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer Bottom Row -->
+    <div class="row text-center mt-4">
+      <div class="col">
+        <p class="mb-0">&copy; <%= Time.now.year %> Soukqi. All rights reserved.</p>
+      </div>
+    </div>
+  </div>
+</div>

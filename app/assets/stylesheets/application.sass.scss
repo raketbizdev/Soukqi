@@ -1,0 +1,86 @@
+// Import entire Bootstrap stylesheet to avoid partial import conflicts
+@import "bootstrap/scss/bootstrap";
+
+// Import custom logo
+@import "logo";
+
+// Set the correct path for Bootstrap Icons fonts
+$icon-font-path: "~bootstrap-icons/fonts/";
+@import "bootstrap-icons/font/bootstrap-icons";
+
+
+@font-face {
+    font-display: block;
+    font-family: "bootstrap-icons";
+    src: url("/assets/js/bootstrap-icons-X6UQXWUS.woff2") format("woff2"),
+         url("/assets/js/bootstrap-icons-OCU552PF.woff") format("woff");
+  }
+
+/* Custom styling for the hero section */
+.bg-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Adds a gradient effect */
+  }
+  
+  h1, p {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2); /* Optional text shadow for depth */
+  }
+  
+// Hero
+
+/* Custom Styling for the Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/assets/job-board-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
+  
+  .hero-section h1, .hero-section p, .hero-section .btn {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .counter {
+    font-size: 2rem;
+    animation: countup 2s ease-out;
+  }
+  
+  /* Animation for Counters */
+  @keyframes countup {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+/* Custom Footer Styles */
+.footer {
+    background-color: #343a40;
+    padding: 2rem 0;
+  
+    h5 {
+      margin-bottom: 1rem;
+    }
+  
+    a {
+      color: #adb5bd;
+  
+      &:hover {
+        color: #ffffff;
+        text-decoration: none;
+      }
+    }
+  
+    .social-icons a {
+      font-size: 1.5rem;
+      margin: 0 0.5rem;
+    }
+  
+    .footer-bottom {
+      border-top: 1px solid #495057;
+      padding-top: 1rem;
+    }
+  }
+  
