@@ -3,7 +3,7 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 import * as bootstrap from "bootstrap";
 import * as Popper from "@popperjs/core";
-import "bootstrap-icons/font/bootstrap-icons.css"; // Import the Bootstrap Icons CSS
+import "bootstrap-icons/font/bootstrap-icons.css";
 
 // Counter Animation Script
 document.addEventListener("DOMContentLoaded", () => {
