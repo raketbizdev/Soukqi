@@ -1,0 +1,14 @@
+/* Custom CSS for card styling */
+.card-border-shadow {
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.01), 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none; /* No additional border */
+  }
+  
+  /* Remove shadow and border on mobile screens */
+  @media (max-width: 767px) {
+    .card-border-shadow {
+      box-shadow: none;
+      border: none;
+    }
+  }
+  

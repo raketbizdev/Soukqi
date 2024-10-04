@@ -15,12 +15,9 @@
     <link rel="apple-touch-icon" href="/icon.png">
     <%= stylesheet_link_tag "css/application", media: "all", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "js/application", "data-turbo-track": "reload", defer: true %>
-
   </head>
 
   <body>
-    <%= render 'layouts/shared/navbar' %>
     <%= yield %>
-    <%= render 'layouts/shared/footer' %>
   </body>
 </html>

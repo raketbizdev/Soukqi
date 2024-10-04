@@ -1,16 +1,32 @@
-<h2>Forgot your password?</h2>
+<div class="container-fluid p-0">
+  <div class="row g-0 align-items-center" style="min-height: 100vh;">
+    <!-- Left Image Background Section -->
+    <div class="col-md-6 d-none d-md-flex bg-image" style="background-image: url('<%= asset_path('domenico-loia-hGV2TfOh0ns-unsplash.jpg') %>'); background-size: cover; background-position: center; height: 100vh;">
+    </div>
+    
+    <!-- Right Form Section -->
+    <div class="col-md-6 col-12 d-flex justify-content-center">
+      <div class="card p-4 card-border-shadow" style="width: 100%; max-width: 500px;">
+        <h2 class="text-center mb-4">Forgot your password?</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+        <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: "form" }) do |f| %>
+          <!-- Display Error Messages -->
+          <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <div class="mb-3">
+            <%= f.label :email, class: 'form-label' %>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control' %>
+          </div>
+
+          <div class="d-grid mb-3">
+            <%= f.submit "Send me reset password instructions", class: "btn btn-primary" %>
+          </div>
+        <% end %>
+
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

@@ -3,6 +3,9 @@
 
 // Import custom logo
 @import "logo";
+@import "auth";
+
+
 
 // Set the correct path for Bootstrap Icons fonts
 $icon-font-path: "~bootstrap-icons/fonts/";
@@ -15,7 +18,7 @@ $icon-font-path: "~bootstrap-icons/fonts/";
     src: url("/assets/js/bootstrap-icons-X6UQXWUS.woff2") format("woff2"),
          url("/assets/js/bootstrap-icons-OCU552PF.woff") format("woff");
   }
-
+  
 /* Custom styling for the hero section */
 .bg-primary {
     background: linear-gradient(135deg, #007bff, #0056b3); /* Adds a gradient effect */

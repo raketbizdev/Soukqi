@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
-  devise_for :users
+  devise_for :users, path: "", controllers: {
+    sessions: "users/sessions",
+    registrations: "users/registrations",
+    passwords: "users/passwords",
+    confirmations: "users/confirmations"
+  }, path_names: {
+    sign_in: "sign_in",
+    sign_out: "sign_out",
+    sign_up: "sign_up",
+    password: "forgot_password", # Defines the base path for password actions
+    new_password: "forgot_password" # Specifies `new` action to use /forgot_password
+  }
   root "static#home"
   get "about", to: "static#about"
 
