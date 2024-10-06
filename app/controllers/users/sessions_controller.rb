@@ -1,6 +1,9 @@
 # app/controllers/users/sessions_controller.rb
 class Users::SessionsController < Devise::SessionsController
-  layout "auth" # Apply the auth layout
+  layout "auth"
+
+  # Skip the `set_turbo_frame_request_variant` callback inherited from `ApplicationController`
+  skip_before_action :set_turbo_frame_request_variant
 
   def create
     self.resource = warden.authenticate!(auth_options)
