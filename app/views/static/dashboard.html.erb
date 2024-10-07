@@ -1,0 +1,29 @@
+<!-- app/views/static/dashboard.html.erb -->
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="text-center">Welcome to Your Dashboard, <%= current_user.email %>!</h1>
+      <p class="text-center">This is your personalized dashboard where you can manage your account, view your activities, and access exclusive features.</p>
+    </div>
+  </div>
+  <div class="row mt-4">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Account Settings</h5>
+          <p class="card-text">Manage your personal information and change your password.</p>
+          <a href="<%= edit_user_registration_path %>" class="btn btn-primary">Account Settings</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Logout</h5>
+          <p class="card-text">Logout from your account securely.</p>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

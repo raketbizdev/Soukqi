@@ -1,4 +1,3 @@
-# app/controllers/users/sessions_controller.rb
 class Users::SessionsController < Devise::SessionsController
   layout "auth"
 
@@ -12,9 +11,19 @@ class Users::SessionsController < Devise::SessionsController
       sign_in(resource_name, resource)
       respond_with resource, location: after_sign_in_path_for(resource)
     else
-      # Custom flash message for unconfirmed users
-      flash[:alert] = "You have to confirm your account before continuing."
+      flash[:alert] = "You have to confirm your email address before continuing."
+      sign_out(resource)
       redirect_to new_user_session_path
     end
+  end
+
+  def new
+    super
+  end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    dashboard_path
   end
 end

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= content_for(:title) || "Soukqi" %></title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= yield :head %>
+
+    <link rel="manifest" href="/manifest.json">
+    <link rel="icon" href="/icon.png" type="image/png">
+    <link rel="icon" href="/icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/icon.png">
+    <%= stylesheet_link_tag "css/application", media: "all", "data-turbo-track": "reload" %>
+    <%= javascript_include_tag "js/application", "data-turbo-track": "reload", defer: true %>
+
+  </head>
+
+  <body>
+  <div class="dashboard-wrapper">
+    <!-- Top Navbar -->
+      <%= render 'layouts/shared/navbar_inner' %>
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Left Sidebar -->
+        <% if user_signed_in? %>
+          <%= render 'layouts/shared/sidebar' %>
+        <% end %>
+
+        <!-- Main Content -->
+        <main class="<%= user_signed_in? ? 'col-md-9 ms-sm-auto col-lg-10 px-md-4' : 'w-100' %>">
+          <%= yield %>
+        </main>
+      </div>
+    </div>
+  </div>
+  </body>
+</html>

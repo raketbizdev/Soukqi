@@ -9,13 +9,15 @@ Rails.application.routes.draw do
     sign_out: "sign_out",
     sign_up: "sign_up",
     password: "forgot_password", # Defines the base path for password actions
-    new_password: "forgot_password" # Specifies `new` action to use /forgot_password
+    new_password: "forgot_password", # Specifies `new` action to use /forgot_password
+    confirmation: "confirmation" # Custom path for confirmation
   }
   root "static#home"
   get "about", to: "static#about"
 
   get "contact", to: "static#contact"
   get "faq", to: "static#faq"
+  get "dashboard", to: "static#dashboard", as: "dashboard"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

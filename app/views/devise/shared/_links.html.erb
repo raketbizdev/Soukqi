@@ -12,7 +12,7 @@
 
 <%- if devise_mapping.confirmable? %>
   <% if flash[:alert] && flash[:alert].include?('You have to confirm your email address before continuing') %>
-    <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+    <%= link_to "Didn't receive confirmation instructions?", new_user_confirmation_path %><br />
   <% end %>
 <% end %>
 
