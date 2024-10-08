@@ -1,0 +1,76 @@
+<%= form_with(model: @profile, local: true, data: { turbo: false }, class: 'needs-validation', novalidate: true) do |form| %>
+<%= render "layouts/shared/flash" %>
+  <% if profile.errors.any? %>
+    <div class="alert alert-danger">
+      <h4 class="alert-heading"><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h4>
+      <ul>
+        <% profile.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :image_profile, "Profile Image", class: 'form-label' %>
+    <%= form.file_field :image_profile, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :first_name, class: 'form-label' %>
+    <%= form.text_field :first_name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :last_name, class: 'form-label' %>
+    <%= form.text_field :last_name, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :date_of_birth, class: 'form-label' %>
+    <%= form.date_select :date_of_birth, { start_year: 1900, end_year: Date.current.year }, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :address, class: 'form-label' %>
+    <%= form.text_field :address, class: 'form-control', required: true %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :city, class: 'form-label' %>
+      <%= form.text_field :city, class: 'form-control', required: true %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :state, class: 'form-label' %>
+      <%= form.text_field :state, class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <%= form.label :country, class: 'form-label' %>
+      <%= form.text_field :country, class: 'form-control', required: true %>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <%= form.label :postal_code, class: 'form-label' %>
+      <%= form.text_field :postal_code, class: 'form-control', required: true %>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :phone_number, class: 'form-label' %>
+    <%= form.text_field :phone_number, class: 'form-control', required: true %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :bio, class: 'form-label' %>
+    <%= form.text_area :bio, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.submit 'Save Profile', class: 'btn btn-primary' %>
+  </div>
+<% end %>

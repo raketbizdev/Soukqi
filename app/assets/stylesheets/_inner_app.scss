@@ -19,3 +19,12 @@
   .navbar-nav .nav-link.active {
     font-weight: bold;
   }
+  @media (max-width: 991.98px) {
+    .navbar-nav {
+      display: flex;
+      flex-direction: row;
+    }
+    .nav-link {
+      padding-right: 15px;
+    }
+  }

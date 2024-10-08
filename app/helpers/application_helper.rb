@@ -1,5 +1,7 @@
 module ApplicationHelper
-  # ... existing helper methods ...
+  def app_name
+    "Soukqi"
+  end
 
   def flash_messages
     flash.each do |type, message|
