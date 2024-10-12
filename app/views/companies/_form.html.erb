@@ -1,0 +1,65 @@
+<%= render "layouts/shared/flash" %>
+
+<%= form_with(model: company, local: true, class: "needs-validation") do |form| %>
+  <% if company.errors.any? %>
+    <div class="alert alert-danger">
+      <h4><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h4>
+      <ul>
+        <% company.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control", placeholder: "Enter company name", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :description %>
+    <%= form.text_area :description, class: "form-control", placeholder: "Describe the company", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control", placeholder: "Company address", required: true %>
+  </div>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :city %>
+      <%= form.text_field :city, class: "form-control", placeholder: "City", required: true %>
+    </div>
+
+    <div class="form-group col-md-4">
+      <%= form.label :state %>
+      <%= form.text_field :state, class: "form-control", placeholder: "State", required: true %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :zip %>
+      <%= form.text_field :zip, class: "form-control", placeholder: "Zip", required: true %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :country %>
+    <%= form.text_field :country, class: "form-control", placeholder: "Country", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :phone %>
+    <%= form.text_field :phone, class: "form-control", placeholder: "Phone number", required: true %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :website %>
+    <%= form.text_field :website, class: "form-control", placeholder: "Company website", required: false %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -5,6 +5,9 @@ import * as bootstrap from "bootstrap";
 import * as Popper from "@popperjs/core";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
+import Rails from "@rails/ujs";  // Add this line to import Rails UJS
+Rails.start();  // Start Rails UJS
+
 
 // Counter Animation Script
 document.addEventListener("DOMContentLoaded", () => {

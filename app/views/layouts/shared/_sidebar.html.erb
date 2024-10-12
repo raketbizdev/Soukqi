@@ -1,13 +1,38 @@
 <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
-  <div class="position-sticky">
-    <ul class="nav flex-column">
-      <li class="nav-item">
-        <%= link_to 'Dashboard', dashboard_path, class: 'nav-link active' %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Account Settings', edit_user_registration_path, class: 'nav-link' %>
-      </li>
-      <!-- Add more sidebar links here -->
-    </ul>
+  <div class="accordion" id="sidebarAccordion">
+
+    <!-- Dashboard and Account Settings as List Group Items (No Collapse) -->
+    <div class="accordion-item">
+      <div class="accordion-body p-0">
+        <div class="list-group">
+          <%= link_to dashboard_path, class: 'list-group-item list-group-item-action active' do %>
+            <i class="bi bi-speedometer2"></i> Dashboard
+          <% end %>
+          <%= link_to edit_user_registration_path, class: 'list-group-item list-group-item-action' do %>
+            <i class="bi bi-gear"></i> Account Settings
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Companies Section (Collapsible Accordion with List Group Items) -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingCompanies">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompanies" aria-expanded="false" aria-controls="collapseCompanies">
+          <i class="bi bi-building"></i> Companies
+        </button>
+      </h2>
+      <div id="collapseCompanies" class="accordion-collapse collapse" aria-labelledby="headingCompanies" data-bs-parent="#sidebarAccordion">
+        <div class="accordion-body p-0">
+          <div class="list-group">
+            <%= link_to 'View Companies', companies_path, class: 'list-group-item list-group-item-action' %>
+            <%= link_to 'Add Company', new_company_path, class: 'list-group-item list-group-item-action' %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more sections here -->
+    
   </div>
 </nav>
