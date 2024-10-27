@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :companies
+  resources :companies do
+    resources :job_listings
+  end
   resources :profiles, only: [ :edit, :update ]
   devise_for :users, path: "", controllers: {
     sessions: "users/sessions",

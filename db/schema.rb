@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_10_12_020500) do
+ActiveRecord::Schema[7.2].define(version: 2024_10_23_130710) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,61 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_12_020500) do
     t.index ["user_id"], name: "index_companies_on_user_id"
   end
 
+  create_table "experience_levels", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "job_listings", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "location"
+    t.boolean "remote"
+    t.string "salary_range"
+    t.bigint "job_type_id", null: false
+    t.boolean "visa_sponsorship"
+    t.boolean "relocation_assistance"
+    t.text "skills"
+    t.bigint "experience_level_id", null: false
+    t.string "education_requirements"
+    t.text "job_benefits"
+    t.bigint "job_category_id", null: false
+    t.string "job_status"
+    t.string "job_reference_id"
+    t.string "job_duration"
+    t.string "work_hours"
+    t.text "interview_process"
+    t.text "keywords"
+    t.text "remote_work_requirements"
+    t.string "job_function"
+    t.bigint "company_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_job_listings_on_company_id"
+    t.index ["experience_level_id"], name: "index_job_listings_on_experience_level_id"
+    t.index ["job_category_id"], name: "index_job_listings_on_job_category_id"
+    t.index ["job_type_id"], name: "index_job_listings_on_job_type_id"
+  end
+
+  create_table "job_types", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "languages", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -100,5 +155,9 @@ ActiveRecord::Schema[7.2].define(version: 2024_10_12_020500) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "companies", "users"
+  add_foreign_key "job_listings", "companies"
+  add_foreign_key "job_listings", "experience_levels"
+  add_foreign_key "job_listings", "job_categories"
+  add_foreign_key "job_listings", "job_types"
   add_foreign_key "profiles", "users"
 end

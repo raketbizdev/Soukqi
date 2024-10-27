@@ -29,7 +29,7 @@
               <hr class="dropdown-divider">
             </li>
             <li>
-              <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item', data: { "turbo-method": "delete", turbo: false } %>
+              <%= button_to 'Logout', destroy_user_session_path, method: :delete, class: 'dropdown-item', data: { "turbo-method": "delete", turbo: false } %>
             </li>
           </ul>
         </li>

@@ -1,6 +1,6 @@
 <%= render "layouts/shared/flash" %>
 
-<%= form_with(model: company, local: true, class: "needs-validation") do |form| %>
+<%= form_with(model: company, local: true, class: "needs-validation", data: { turbo: false }) do |form| %>
   <% if company.errors.any? %>
     <div class="alert alert-danger">
       <h4><%= pluralize(company.errors.count, "error") %> prohibited this company from being saved:</h4>
@@ -12,53 +12,63 @@
     </div>
   <% end %>
 
+  <!-- Company Details Section -->
   <div class="form-group">
-    <%= form.label :name %>
+    <%= form.label :name, "Company Name" %>
     <%= form.text_field :name, class: "form-control", placeholder: "Enter company name", required: true %>
   </div>
 
   <div class="form-group">
-    <%= form.label :description %>
+    <%= form.label :description, "Company Description" %>
     <%= form.text_area :description, class: "form-control", placeholder: "Describe the company", required: true %>
   </div>
 
+  <!-- Address Section -->
   <div class="form-group">
-    <%= form.label :address %>
-    <%= form.text_field :address, class: "form-control", placeholder: "Company address", required: true %>
-  </div>
-
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= form.label :city %>
-      <%= form.text_field :city, class: "form-control", placeholder: "City", required: true %>
+    <h5>Address</h5>
+    <div class="form-group">
+      <%= form.label :address %>
+      <%= form.text_field :address, class: "form-control", placeholder: "Company address", required: true %>
     </div>
 
-    <div class="form-group col-md-4">
-      <%= form.label :state %>
-      <%= form.text_field :state, class: "form-control", placeholder: "State", required: true %>
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <%= form.label :city %>
+        <%= form.text_field :city, class: "form-control", placeholder: "City", required: true %>
+      </div>
+
+      <div class="form-group col-md-4">
+        <%= form.label :state %>
+        <%= form.text_field :state, class: "form-control", placeholder: "State", required: true %>
+      </div>
+
+      <div class="form-group col-md-2">
+        <%= form.label :zip %>
+        <%= form.text_field :zip, class: "form-control", placeholder: "Zip", required: true %>
+      </div>
     </div>
 
-    <div class="form-group col-md-2">
-      <%= form.label :zip %>
-      <%= form.text_field :zip, class: "form-control", placeholder: "Zip", required: true %>
+    <div class="form-group">
+      <%= form.label :country %>
+      <%= form.text_field :country, class: "form-control", placeholder: "Country", required: true %>
     </div>
   </div>
 
+  <!-- Contact Information Section -->
   <div class="form-group">
-    <%= form.label :country %>
-    <%= form.text_field :country, class: "form-control", placeholder: "Country", required: true %>
+    <h5>Contact Information</h5>
+    <div class="form-group">
+      <%= form.label :phone, "Phone Number" %>
+      <%= form.text_field :phone, class: "form-control", placeholder: "Phone number", required: true %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :website, "Company Website" %>
+      <%= form.text_field :website, class: "form-control", placeholder: "Company website", required: false %>
+    </div>
   </div>
 
-  <div class="form-group">
-    <%= form.label :phone %>
-    <%= form.text_field :phone, class: "form-control", placeholder: "Phone number", required: true %>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :website %>
-    <%= form.text_field :website, class: "form-control", placeholder: "Company website", required: false %>
-  </div>
-
+  <!-- Submit Button -->
   <div class="form-group">
     <%= form.submit class: "btn btn-primary" %>
   </div>

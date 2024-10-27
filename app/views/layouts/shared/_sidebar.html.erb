@@ -1,7 +1,7 @@
 <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block bg-light sidebar">
   <div class="accordion" id="sidebarAccordion">
 
-    <!-- Dashboard and Account Settings as List Group Items (No Collapse) -->
+    <!-- Dashboard and Account Settings -->
     <div class="accordion-item">
       <div class="accordion-body p-0">
         <div class="list-group">
@@ -15,7 +15,7 @@
       </div>
     </div>
 
-    <!-- Companies Section (Collapsible Accordion with List Group Items) -->
+    <!-- Companies Section -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingCompanies">
         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCompanies" aria-expanded="false" aria-controls="collapseCompanies">
@@ -32,7 +32,34 @@
       </div>
     </div>
 
-    <!-- Add more sections here -->
-    
+
+<!-- Job Listings Section -->
+<!-- Job Listings Section -->
+<div class="accordion-item">
+  <h2 class="accordion-header" id="headingJobs">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseJobs" aria-expanded="false" aria-controls="collapseJobs">
+      <i class="bi bi-briefcase"></i> Job Listings
+    </button>
+  </h2>
+  <div id="collapseJobs" class="accordion-collapse collapse" aria-labelledby="headingJobs" data-bs-parent="#sidebarAccordion">
+    <div class="accordion-body p-0">
+      <div class="list-group">
+        <% if current_user.companies.exists? %>
+          <!-- If companies exist, use the correct links -->
+          <%= link_to 'View Job Listings', company_job_listings_path(current_user.companies.first), class: 'list-group-item list-group-item-action' %>
+          <%= link_to 'Add Job Listing', new_company_job_listing_path(current_user.companies.first), class: 'list-group-item list-group-item-action' %>
+        <% else %>
+          <!-- If no companies exist, display links but trigger a JS alert -->
+          <%= link_to '#', class: 'list-group-item list-group-item-action', onclick: "alert('You need to create a company first.')" do %>
+            View Job Listings
+          <% end %>
+          <%= link_to '#', class: 'list-group-item list-group-item-action', onclick: "alert('You need to create a company first.')" do %>
+            Add Job Listing
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
+
 </nav>

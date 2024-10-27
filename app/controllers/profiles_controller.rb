@@ -1,23 +1,23 @@
 class ProfilesController < ApplicationController
-  skip_before_action :ensure_profile_complete, only: %i[edit update]
-  before_action :set_profile, only: %i[edit update]
+  before_action :authenticate_user!  # Ensure the user is logged in
+  before_action :set_profile         # Load the profile before edit/update actions
+  before_action :check_profile_completion, only: [ :edit, :update ] # Check for profile completeness
   layout "inner_app"
 
-  # GET /profiles/1/edit
+  # GET /profiles/:id/edit
   def edit
+    # Rails will automatically render the edit view
   end
 
-  # PATCH/PUT /profiles/1
+  # PATCH/PUT /profiles/:id
   def update
-    respond_to do |format|
-      if @profile.update(profile_params)
-        flash[:notice] = "Profile was successfully updated."
-        format.html { render :edit } # Keep the user on the edit page
-        format.json { render :show, status: :ok, location: @profile }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+    Rails.logger.debug("Profile Params: #{profile_params.inspect}")
+    if @profile.update(profile_params)
+      redirect_to dashboard_path, notice: "Profile updated successfully."
+    else
+      Rails.logger.debug("Profile update failed: #{@profile.errors.full_messages}")
+      flash.now[:alert] = "There were some errors updating your profile."
+      render :edit
     end
   end
 
@@ -28,6 +28,13 @@ class ProfilesController < ApplicationController
   end
 
   def profile_params
-    params.require(:profile).permit(:first_name, :last_name, :date_of_birth, :address, :city, :state, :country, :postal_code, :phone_number, :bio, :image_profile)
+    params.require(:profile).permit(:first_name, :last_name, :date_of_birth, :address, :city, :state,
+                                    :country, :postal_code, :phone_number, :image_profile)
+  end
+
+  def check_profile_completion
+    if @profile.incomplete?
+      flash[:alert] = "Please complete your profile before continuing."
+    end
   end
 end

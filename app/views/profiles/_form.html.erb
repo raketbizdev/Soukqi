@@ -1,5 +1,6 @@
-<%= form_with(model: @profile, local: true, data: { turbo: false }, class: 'needs-validation', novalidate: true) do |form| %>
-<%= render "layouts/shared/flash" %>
+<%= form_with model: @profile, local: true, data: { turbo: false } do |form| %>
+  <%= render "layouts/shared/flash" %>
+
   <% if profile.errors.any? %>
     <div class="alert alert-danger">
       <h4 class="alert-heading"><%= pluralize(profile.errors.count, "error") %> prohibited this profile from being saved:</h4>

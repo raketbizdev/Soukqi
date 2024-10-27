@@ -1,0 +1,123 @@
+<%= form_with(model: [@company, job_listing], local: true, class: "needs-validation", data: { turbo: false }) do |form| %>
+  <% if job_listing.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(job_listing.errors.count, "error") %> prohibited this job listing from being saved:</h2>
+      <ul>
+        <% job_listing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="mb-3">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :location, class: "form-label" %>
+    <%= form.text_field :location, class: "form-control" %>
+  </div>
+
+  <div class="form-check mb-3">
+    <%= form.check_box :remote, class: "form-check-input" %>
+    <%= form.label :remote, class: "form-check-label" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :salary_range, class: "form-label" %>
+    <%= form.text_field :salary_range, class: "form-control" %>
+  </div>
+
+<div class="mb-3">
+  <%= form.label :job_type_id, "Job Type", class: "form-label" %>
+  <%= form.collection_select :job_type_id, JobType.all, :id, :name, { prompt: "Select Job Type" }, { class: "form-select" } %>
+</div>
+
+  <div class="form-check mb-3">
+    <%= form.check_box :visa_sponsorship, class: "form-check-input" %>
+    <%= form.label :visa_sponsorship, class: "form-check-label" %>
+  </div>
+
+  <div class="form-check mb-3">
+    <%= form.check_box :relocation_assistance, class: "form-check-input" %>
+    <%= form.label :relocation_assistance, class: "form-check-label" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :skills, class: "form-label" %>
+    <%= form.text_area :skills, class: "form-control" %>
+  </div>
+
+<div class="mb-3">
+  <%= form.label :experience_level_id, "Experience Level", class: "form-label" %>
+  <%= form.collection_select :experience_level_id, ExperienceLevel.all, :id, :name, { prompt: "Select Experience Level" }, { class: "form-select" } %>
+</div>
+
+
+  <div class="mb-3">
+    <%= form.label :education_requirements, class: "form-label" %>
+    <%= form.text_field :education_requirements, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :job_benefits, class: "form-label" %>
+    <%= form.text_area :job_benefits, class: "form-control" %>
+  </div>
+
+<div class="mb-3">
+  <%= form.label :job_category_id, "Job Category", class: "form-label" %>
+  <%= form.collection_select :job_category_id, JobCategory.all, :id, :name, { prompt: "Select a Job Category" }, { class: "form-select" } %>
+</div>
+
+
+  <div class="mb-3">
+    <%= form.label :job_status, class: "form-label" %>
+    <%= form.text_field :job_status, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :job_reference_id, class: "form-label" %>
+    <%= form.text_field :job_reference_id, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :job_duration, class: "form-label" %>
+    <%= form.text_field :job_duration, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :work_hours, class: "form-label" %>
+    <%= form.text_field :work_hours, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :interview_process, class: "form-label" %>
+    <%= form.text_area :interview_process, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :keywords, class: "form-label" %>
+    <%= form.text_area :keywords, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :remote_work_requirements, class: "form-label" %>
+    <%= form.text_area :remote_work_requirements, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :job_function, class: "form-label" %>
+    <%= form.text_field :job_function, class: "form-control" %>
+  </div>
+
+  <div class="d-grid">
+    <%= form.submit "Save Job Listing", class: "btn btn-primary" %>
+  </div>
+<% end %>

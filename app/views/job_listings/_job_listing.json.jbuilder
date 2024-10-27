@@ -1,0 +1,2 @@
+json.extract! job_listing, :id, :title, :description, :location, :remote, :salary_range, :job_type_id, :visa_sponsorship, :relocation_assistance, :skills, :experience_level_id, :education_requirements, :job_benefits, :job_category_id, :job_status, :job_reference_id, :job_duration, :work_hours, :interview_process, :keywords, :remote_work_requirements, :job_function, :company_id, :created_at, :updated_at
+json.url job_listing_url(job_listing, format: :json)

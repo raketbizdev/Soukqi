@@ -1,0 +1,49 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  location: MyString
+  remote: false
+  salary_range: MyString
+  job_type: one
+  visa_sponsorship: false
+  relocation_assistance: false
+  skills: MyText
+  experience_level: one
+  education_requirements: MyString
+  job_benefits: MyText
+  job_category: one
+  job_status: MyString
+  job_reference_id: MyString
+  job_duration: MyString
+  work_hours: MyString
+  interview_process: MyText
+  keywords: MyText
+  remote_work_requirements: MyText
+  job_function: MyString
+  company: one
+
+two:
+  title: MyString
+  description: MyText
+  location: MyString
+  remote: false
+  salary_range: MyString
+  job_type: two
+  visa_sponsorship: false
+  relocation_assistance: false
+  skills: MyText
+  experience_level: two
+  education_requirements: MyString
+  job_benefits: MyText
+  job_category: two
+  job_status: MyString
+  job_reference_id: MyString
+  job_duration: MyString
+  work_hours: MyString
+  interview_process: MyText
+  keywords: MyText
+  remote_work_requirements: MyText
+  job_function: MyString
+  company: two

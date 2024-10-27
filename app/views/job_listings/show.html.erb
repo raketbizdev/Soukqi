@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @job_listing %>
+
+<div>
+<div>
+  <%= link_to "Edit this job listing", edit_company_job_listing_path(@company, @job_listing) %> |
+  <%= link_to "Back to job listings", company_job_listings_path(@company) %>
+</div>
+
+<%= button_to "Destroy this job listing", [@company, @job_listing], method: :delete, data: { confirm: "Are you sure?" } %>
+
+</div>
