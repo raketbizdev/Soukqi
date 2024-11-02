@@ -1,5 +1,6 @@
 class Profile < ApplicationRecord
   belongs_to :user
+  has_many :resumes, dependent: :destroy
   has_one_attached :image_profile
 
   with_options on: :update do

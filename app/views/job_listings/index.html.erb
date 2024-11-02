@@ -15,7 +15,7 @@
   <tbody>
     <% @job_listings.each do |job_listing| %>
       <tr>
-        <td><%= job_listing.title %></td>
+        <td><%= job_listing.title.presence || 'No title' %></td>
         <td><%= job_listing.salary_range %></td>
         <td><%= job_listing.location %></td>
         <td><%= job_listing.remote ? "Yes" : "No" %></td>
